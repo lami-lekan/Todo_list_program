@@ -5,7 +5,7 @@ class ToDoList:
 
     # program main menu
     def main_menu(self):
-        msg_display = "Hi!\nPress C to create a task\nPress V to view task\nPress M to mark completed task\nPress D " \
+        msg_display = "Hi! Welcome\nPress C to create a task\nPress V to view tasks\nPress M to mark completed task\nPress D " \
                       "to delete task\nPress E to exit program: "
         return input(msg_display).upper()
 
@@ -41,9 +41,9 @@ class ToDoList:
         except ValueError:
             print("Please input numbers only.")
         except IndexError:
-            print("Please try again.")
+            print(f"Tasks number {num} doesn't exist. Please input correct task number.")
 
-
+    # displays completed task
     def view_completed_task(self):
         if not self.completed_task:
             print("You got no task completed.")
@@ -52,9 +52,11 @@ class ToDoList:
             for index, item in enumerate(self.completed_task, start=1):
                 print(f"{index}. {item}")
 
+    # delete task
     def delete_task(self, task_num):
         del self.task[task_num]
 
+    # stops program completely
     def close_program(self):
         print("Existing program. Goodbye!")
         exit()

@@ -15,22 +15,21 @@ while True:
 
     elif choice == 'M':
         while choice == 'M':
-            print("Mark a task as complete by typing it's number.")
-            todo_list.tasks_list()
-            num = int(input("Task number: "))
-            todo_list.complete_task(num)
-            print()
-            todo_list.view_completed_task()
-            break
+            todo_list.tasks_list()    
+            num = input("Input completed task number or 'B' to go back to main menu: ").upper()
+            if num == 'B':
+                break
+            todo_list.complete_task(int(num))
 
     elif choice == 'D':
+        todo_list.tasks_list()
         task_num = int(input('Enter the task number you want to remove: '))
         choice = input(f"Are you sure you want to delete {todo_list.task[task_num-1]}. Y/N: ").upper()
         if choice == 'N':
             print("Delete cancelled.")
             todo_list.main_menu()
         else:
-            del todo_list.task[task_num-1]
+            todo_list.delete_task(task_num-1)
             print('Task deleted succefully.')
 
     elif choice == 'E':
