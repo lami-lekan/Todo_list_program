@@ -1,7 +1,7 @@
 To Do Program Specifications
 - 
 - creates a task
-- view all tas./rks
+- view all tasks
 - mark a task as complete
 - delete task
 - exit program
